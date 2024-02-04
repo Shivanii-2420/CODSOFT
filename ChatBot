@@ -1,1 +1,67 @@
+import nltk
+from nltk.chat.util import Chat, reflections
+
+# Define a list of patterns and responses
+dog_care_patterns = [
+    (r'(.*)how to take care of a dog(.*)', 
+    ['Here are some tips for taking care of your dog:\n1. Provide a balanced diet.\n2. Regular exercise is essential.\n3. Schedule regular vet check-ups.']),
+
+    (r'(.*)dog food(.*)',
+    ['Make sure to choose high-quality dog food with balanced nutrients. Consult your vet for specific dietary needs.']),
+
+    (r'(.*)best dog food(.*)',
+    ['The best dog food depends on your dog\'s breed, age, and health condition. Your vet can recommend a suitable diet.']),
+
+    (r'(.*)exercise for dogs(.*)',
+    ['Dogs need regular exercise. Daily walks, playtime, and interactive toys can help keep your dog active and healthy.']),
+
+    (r'(.*)vaccination(.*)',
+    ['Ensure your dog is up-to-date on vaccinations. Consult your vet for a vaccination schedule.']),
+
+    (r'(.*)grooming(.*)',
+    ['Regular grooming, including brushing, nail trimming, and bathing, is important for your dog\'s well-being.']),
+
+    (r'(.*)how to train a dog(.*)',
+    ['Positive reinforcement is key to dog training. Start with basic commands and be consistent in your approach.']),
+
+    (r'(.*)puppy training(.*)',
+    ['For puppy training, focus on basic commands, socialization, and housebreaking. Patience and consistency are crucial.']),
+
+    (r'(.*)dog behavior(.*)',
+    ['Understanding dog behavior is important. Positive reinforcement, socialization, and consistent training can address behavioral issues.']),
+
+    (r'(.*)dog aggression(.*)',
+    ['If your dog shows signs of aggression, consult with a professional dog trainer or behaviorist for guidance.']),
+
+    (r'(.*)health issues in dogs(.*)',
+    ['Common health issues include dental problems, obesity, and allergies. Regular vet check-ups can help catch issues early.']),
+
+    (r'(.*)symptoms of illness in dogs(.*)',
+    ['Symptoms of illness may include lethargy, loss of appetite, vomiting, and changes in behavior. Consult your vet if you notice any signs.']),
+
+    (r'(.*)poisonous foods for dogs(.*)',
+    ['Avoid feeding dogs chocolate, grapes, onions, and foods containing xylitol, as they can be toxic.']),
+
+    (r'(.*)', 
+    ['I\'m sorry, I didn\'t understand that. If you have specific questions about dog care, feel free to ask!'])
+]
+
+# Create a Chat instance
+dog_care_chatbot = Chat(dog_care_patterns, reflections)
+
+# Function to start the chat
+def start_chat():
+    print("Hello! I'm your enhanced dog care tips chatbot. Ask me anything about taking care of your dog.")
+    print("Type 'quit' to exit.")
+    while True:
+        user_input = input("You: ")
+        if user_input.lower() == 'quit':
+            print("Goodbye!")
+            break
+        else:
+            response = dog_care_chatbot.respond(user_input)
+            print("Chatbot:", response)
+
+# Start the chat
+start_chat()
 
